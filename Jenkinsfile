@@ -8,6 +8,7 @@ pipeline {
     environment {
         SNAP_REPO = 'snapshot'
         NEXUS_USER = 'admin'
+        NEXUS_PASS = 'yann42'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
         NEXUSIP = '172.31.0.35'
@@ -17,7 +18,7 @@ pipeline {
     }
 
     stages {
-        stage {
+        stage ('Build') {
             steps {
                 sh 'mvn -s settings.xml -DskipTests install'
             }
